@@ -12,4 +12,4 @@ Cluster Health Visibility: The dashboard confirms a 'Healthy' status, indicating
 
 Deployment Hierarchy: The visualization shows the logical flow from the ArgoCD Application Controller to the ReplicaSet and finally the live Nginx Pods.
 
-![ArgoCD Automation](argocd-eks-sync-dashboard.png)
+![rgocd-eks-sync-dashboard.png](argocd-eks-sync-dashboard.png)
