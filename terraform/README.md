@@ -25,3 +25,6 @@ This framework implements **Shift-Left Security** and **Automated Governance** p
 *   **Network Hardening**: Provisioned within a custom VPC with isolated private subnets for EKS worker nodes to minimize the public attack surface.
 
 ![ArgoCD Components Validation](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/argocd-components-validation.png)
+
+### Environment Initialization
+![Terraform Init Success](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/terraform-init-success.png)
