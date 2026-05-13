@@ -35,3 +35,5 @@ The screenshot demonstrates the successful execution of terraform init, the foun
 ![Terraform Architecture Diagram](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/terraform-architecture-diagram.png)
 
 *This automated diagram visualizes the relationship between the EKS control plane, worker node groups, and the supporting VPC networking stack.*
+
+![EKS Infrastructure Architecture](./aws_cloudwatch_log_group.this.png)
