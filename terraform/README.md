@@ -23,3 +23,6 @@ This framework implements **Shift-Left Security** and **Automated Governance** p
 *   **Infrastructure Scanning**: Integration readiness for **tfsec** to perform static analysis on Terraform code before deployment, catching misconfigurations early.
 *   **GitOps Security**: ArgoCD ensures that the live cluster state remains in sync with the version-controlled manifests, preventing "configuration drift" and unauthorized manual changes.
 *   **Network Hardening**: Provisioned within a custom VPC with isolated private subnets for EKS worker nodes to minimize the public attack surface.
+
+### Cluster Health & GitOps Sync (CLI)
+![ArgoCD Components Validation](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/argocd-validation.png)
