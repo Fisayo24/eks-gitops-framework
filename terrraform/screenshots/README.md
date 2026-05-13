@@ -13,7 +13,7 @@ Cluster Health Visibility: The dashboard confirms a 'Healthy' status, indicating
 Deployment Hierarchy: The visualization shows the logical flow from the ArgoCD Application Controller to the ReplicaSet and finally the live Nginx Pods.
 
 
-![ArgoCD Dashboard](terraform/argocd-eks-sync-dashboard.png-eks-sync-dashboard.png)
+![ArgoCD Dashboard](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/refs/heads/main/terrraform/screenshots/README.md
 
 
 
