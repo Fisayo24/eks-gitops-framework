@@ -36,4 +36,6 @@ The screenshot demonstrates the successful execution of terraform init, the foun
 
 *This automated diagram visualizes the relationship between the EKS control plane, worker node groups, and the supporting VPC networking stack.*
 
+This diagram illustrates the high-level architecture of the Global-Mesh-Infrastructure. It highlights the modular separation between the networking layer (VPC Module) and the compute layer (EKS Module). By using HashiCorp Terraform, I’ve ensured that the EKS Cluster is vertically integrated with private subnets for enhanced security and isolated node groups for scalable workload management.
+
 ![EKS Infrastructure Architecture](./aws_cloudwatch_log_group.this.png)
