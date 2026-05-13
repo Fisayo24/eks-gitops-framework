@@ -36,3 +36,13 @@ The screenshot demonstrates the successful execution of terraform init, the foun
 This diagram illustrates the high-level architecture of the Global-Mesh-Infrastructure. It highlights the modular separation between the networking layer (VPC Module) and the compute layer (EKS Module). By using HashiCorp Terraform, I’ve ensured that the EKS Cluster is vertically integrated with private subnets for enhanced security and isolated node groups for scalable workload management.
 
 ![EKS Infrastructure Architecture](./aws_cloudwatch_log_group.this.png)
+
+This framework integrates a "Shift-Left" security philosophy to ensure the infrastructure is audit-ready and resilient from the first line of code:
+
+Identity Isolation: Implements granular IAM Roles for the EKS control plane and worker nodes, adhering to the principle of least privilege.
+
+Data Protection: Utilizes AWS KMS for envelope encryption of Kubernetes secrets and persistent volumes.
+
+Network Perimeter: All compute workloads are deployed within Private Subnets, utilizing NAT Gateways for controlled egress and no direct public ingress.
+
+Automated Auditing: Integrated CloudWatch Log Groups capture control plane and VPC flow logs for real-time security monitoring and compliance tracking.
