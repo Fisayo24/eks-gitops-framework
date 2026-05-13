@@ -13,4 +13,4 @@ Security: Integration of IAM OIDC providers, identity isolation, and automated g
 Deployment Status
 The following visualization confirms the live synchronization state of the EKS cluster. This demonstrates that the live environment successfully matches the declarative state defined within this repository.
 
-![ArgoCD Sync Status](https://github.com/Fisayo24/eks-gitops-framework/raw/main/terraform/screenshots/argocd-sync-status.png)
+![ArgoCD Sync Status](terraform/argocd-eks-sync-dashboard.png-eks-sync-dashboard.png)
