@@ -26,5 +26,7 @@ This framework implements **Shift-Left Security** and **Automated Governance** p
 
 ![ArgoCD Components Validation](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/argocd-components-validation.png)
 
+The screenshot demonstrates the successful execution of terraform init, the foundational stage of the Infrastructure as Code (IaC) lifecycle. It confirms that the environment has pulled the necessary HashiCorp and AWS provider plugins, as well as the specialized modules for VPC and EKS provisioning. This ensures the workspace is ready for automated state management and resource deployment.
+
 ### Environment Initialization
 ![Terraform Init Success](https://raw.githubusercontent.com/Fisayo24/eks-gitops-framework/main/terraform/terraform-init-success.png)
