@@ -70,7 +70,7 @@ This architecture implements a strict **Zero-Trust Network Topology** for the co
 
 
 
-```text
+
                        [ Internet ]
                             │
                ( Public Endpoint: DISABLED ) 🚫
