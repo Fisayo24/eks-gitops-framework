@@ -58,3 +58,30 @@ To enforce strict security guardrails and code quality, every commit to this rep
 2. **Security Static Analysis:** Utilizes Aqua Security's **Trivy** engine to scan infrastructure-as-code files for misconfigurations, catching critical risks (such as public EKS endpoint exposure) before deployment.
 
 ![Terraform DevSecOps Validation Pipeline](terraform-validation-pipeline.png)
+
+### 🛡️ Infrastructure Security Hardening (SAST Remediation)
+
+During the automated build process, the Trivy Static Application Security Testing (SAST) engine intercepted critical misconfigurations. Below is the remediation log for the production patches applied to the cluster configuration:
+
+| Vulnerability ID | Severity | Description | Remediation Action | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **AWS-0040** | 🔥 CRITICAL | Public cluster API endpoint enabled by default | Modified `vpc_config` to set `endpoint_public_access = false` | **RESOLVED** ✅ |
+| **AWS-0041** | 🔥 CRITICAL | EKS Cluster open to public CIDR range (`0.0.0.0/0`) | Enforced zero-trust networking by restricting traffic exclusively to `endpoint_private_access = true` | **RESOLVED** ✅ |
+
+[ Internet ]
+                            │
+               ( Public Endpoint: DISABLED ) 🚫
+                            │
+                     ┌──────▼──────┐
+                     │  Your VPC   │
+                     └──────┬──────┘
+                            │
+            ( Private Endpoint: ENABLED ) 🔒
+                            │
+             ┌──────────────▼──────────────┐
+             │    EKS Cluster Control Plane │
+             ├─────────────────────────────┤
+             │  ┌──────────────┐  ┌──────────┐  │
+             │  │ Private Sub1 │  │Priv Sub2 │  │
+             │  └──────────────┘  └──────────┘  │
+             └─────────────────────────────┘
