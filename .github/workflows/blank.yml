@@ -23,15 +23,17 @@ jobs:
         with:
           terraform_version: "1.5.7"
 
-      # Fits your exact double-nested structure from the screenshot
       - name: Terraform Format Check
-        run:  terraform fmt -recursive eks-gitops-framework/terraform/
+        run: terraform fmt -recursive
+        working-directory: eks-gitops-framework/terraform
 
       - name: Terraform Init
-        run: terraform init -backend=false eks-gitops-framework/terraform/
+        run: terraform init -backend=false
+        working-directory: eks-gitops-framework/terraform
 
       - name: Terraform Validate
-        run: terraform validate eks-gitops-framework/terraform/
+        run: terraform validate
+        working-directory: eks-gitops-framework/terraform
 
   security-scan:
     name: "Security Static Analysis"
