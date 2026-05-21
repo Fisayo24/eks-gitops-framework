@@ -59,16 +59,8 @@ To enforce strict security guardrails and code quality, every commit to this rep
 
 ![Terraform DevSecOps Validation Pipeline](terraform-validation-pipeline.png)
 
-### 🛡️ Infrastructure Security Hardening (SAST Remediation)
-
-During the automated build process, the Trivy Static Application Security Testing (SAST) engine intercepted critical misconfigurations. Below is the remediation log for the production patches applied to the cluster configuration:
-
-| Vulnerability ID | Severity | Description | Remediation Action | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **AWS-0040** | 🔥 CRITICAL | Public cluster API endpoint enabled by default | Modified `vpc_config` to set `endpoint_public_access = false` | **RESOLVED** ✅ |
-| **AWS-0041** | 🔥 CRITICAL | EKS Cluster open to public CIDR range (`0.0.0.0/0`) | Enforced zero-trust networking by restricting traffic exclusively to `endpoint_private_access = true` | **RESOLVED** ✅ |
-
-[ Internet ]
+```text
+                       [ Internet ]
                             │
                ( Public Endpoint: DISABLED ) 🚫
                             │
@@ -77,6 +69,22 @@ During the automated build process, the Trivy Static Application Security Testin
                      └──────┬──────┘
                             │
             ( Private Endpoint: ENABLED ) 🔒
+
+### 🌐 Target Network Architecture (Zero-Trust)
+
+```mermaid
+graph TD
+    Internet[🌐 Internet] -->|Public Endpoint: DISABLED 🚫| VPC[🏢 Target VPC]
+    VPC -->|Private Endpoint: ENABLED 🔒| EKS[☸️ EKS Control Plane]
+    
+    subgraph Isolated Private Subnets
+        EKS --> Sub1[🔒 Private Subnet 1]
+        EKS --> Sub2[🔒 Private Subnet 2]
+    end
+
+    style Internet fill:#fff,stroke:#ff6b6b,stroke-width:2px
+    style VPC fill:#fff,stroke:#333,stroke-width:2px
+    style EKS fill:#e3faf2,stroke:#2b8a3e,stroke-width:2px
                             │
              ┌──────────────▼──────────────┐
              │    EKS Cluster Control Plane │
