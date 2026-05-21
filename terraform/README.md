@@ -68,9 +68,7 @@ This architecture implements a strict **Zero-Trust Network Topology** for the co
 * **Decoupled Worker Node Topography:** The EKS worker nodes and control plane interfaces are deployed natively inside **Isolated Private Subnets**. Compute resources communicate securely with the AWS control plane over the AWS backbone network rather than traversing public routing tables, maintaining complete cryptographic and network-level isolation.
 
 
-
-
-
+```text
                        [ Internet ]
                             │
                ( Public Endpoint: DISABLED ) 🚫
@@ -80,22 +78,6 @@ This architecture implements a strict **Zero-Trust Network Topology** for the co
                      └──────┬──────┘
                             │
             ( Private Endpoint: ENABLED ) 🔒
-
-### 🌐 Target Network Architecture (Zero-Trust)
-
-```mermaid
-graph TD
-    Internet[🌐 Internet] -->|Public Endpoint: DISABLED 🚫| VPC[🏢 Target VPC]
-    VPC -->|Private Endpoint: ENABLED 🔒| EKS[☸️ EKS Control Plane]
-    
-    subgraph Isolated Private Subnets
-        EKS --> Sub1[🔒 Private Subnet 1]
-        EKS --> Sub2[🔒 Private Subnet 2]
-    end
-
-    style Internet fill:#fff,stroke:#ff6b6b,stroke-width:2px
-    style VPC fill:#fff,stroke:#333,stroke-width:2px
-    style EKS fill:#e3faf2,stroke:#2b8a3e,stroke-width:2px
                             │
              ┌──────────────▼──────────────┐
              │    EKS Cluster Control Plane │
@@ -104,3 +86,6 @@ graph TD
              │  │ Private Sub1 │  │Priv Sub2 │  │
              │  └──────────────┘  └──────────┘  │
              └─────────────────────────────┘
+
+
+      
