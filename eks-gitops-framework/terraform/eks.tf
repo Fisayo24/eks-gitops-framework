@@ -49,7 +49,7 @@ resource "aws_eks_cluster" "this" {
     # Tightly binds control plane to the private subnets from your VPC module
     subnet_ids              = module.vpc.private_subnets
     endpoint_private_access = true
-    endpoint_public_access  = true
+    endpoint_public_access  = false
   }
 
   encryption_config {
