@@ -63,8 +63,8 @@ This architecture implements a strict **Zero-Trust Network Topology** for the co
 
 #### Architectural Components & Security Controls:
 
-* **Ingress Restriction (AWS-0040 Remediation):** The Amazon EKS cluster control plane has its public API endpoint completely disabled (`endpoint_public_access = false`). This closes the default public management gateway, preventing unauthorized network scanning, brute-force attempts, or discovery from external entities.
-* **Isolated Private Control Plane (AWS-0041 Remediation):** Ingress to the Kubernetes API server is bound exclusively to private VPC endpoints (`endpoint_private_access = true`). All cluster administrative traffic must originate from within the trusted network boundaries or via a secure, designated administrative gateway (such as a corporate VPN or Bastion host).
+* **Ingress Restriction (AWS-0040 Remediation):** The Amazon EKS cluster control plane has its public API endpoint completely disabled (endpoint_public_access = false). This closes the default public management gateway, preventing unauthorized network scanning, brute-force attempts, or discovery from external entities.
+* **Isolated Private Control Plane (AWS-0041 Remediation):** Ingress to the Kubernetes API server is bound exclusively to private VPC endpoints (endpoint_private_access = true). All cluster administrative traffic must originate from within the trusted network boundaries or via a secure, designated administrative gateway (such as a corporate VPN or Bastion host).
 * **Decoupled Worker Node Topography:** The EKS worker nodes and control plane interfaces are deployed natively inside **Isolated Private Subnets**. Compute resources communicate securely with the AWS control plane over the AWS backbone network rather than traversing public routing tables, maintaining complete cryptographic and network-level isolation.
 
 
