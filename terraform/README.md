@@ -46,3 +46,15 @@ Data Protection: Utilizes AWS KMS for envelope encryption of Kubernetes secrets 
 Network Perimeter: All compute workloads are deployed within Private Subnets, utilizing NAT Gateways for controlled egress and no direct public ingress.
 
 Automated Auditing: Integrated CloudWatch Log Groups capture control plane and VPC flow logs for real-time security monitoring and compliance tracking.
+
+### 🛡️ Automated CI/CD Guardrails
+Every commit to this repository triggers an automated DevSecOps validation pipeline to ensure infrastructure compliance and security before deployment.
+
+### 🛡️ Automated DevSecOps Validation Pipeline
+
+To enforce strict security guardrails and code quality, every commit to this repository triggers an automated multi-stage CI/CD workflow via GitHub Actions:
+
+1. **Lint & Validate:** Automatically formats HCL files using `terraform fmt` and verifies syntax compliance with `terraform validate`.
+2. **Security Static Analysis:** Utilizes Aqua Security's **Trivy** engine to scan infrastructure-as-code files for misconfigurations, catching critical risks (such as public EKS endpoint exposure) before deployment.
+
+![Terraform DevSecOps Validation Pipeline](terraform-validation-pipeline.png)
